@@ -46,7 +46,7 @@ This document covers Magento and how I'm getting it installed on an Amazon EC2 i
 This will launch the configurator for mariaDB
 ```
 Enter current password for root (enter for none): Press [Enter] since no password is set by default
-Set root password? [Y/n]: N (You can set a password if you like)
+Set root password? [Y/n]: Y (Keep this password handy for a later step)
 Remove anonymous users? [Y/n]: Y
 Disallow root login remotely? [Y/n]: Y
 Remove test database and access to it? [Y/n]: Y
@@ -55,4 +55,15 @@ Reload privilege tables now? [Y/n]: Y
 Once done:
 3. `systemctl status mariadb.service`
 4. `systemctl enable mariadb.service`
+
+### Configure DB
+1. mysql -u root -p
+2. Enter the root password when asked
+3. Enter the following commands in the order shown to create a database instance named magento with username magento:
+```
+create database magento;
+create user 'magento'@'localhost' IDENTIFIED BY 'Password';
+GRANT ALL ON magento.* TO 'magento'@'localhost';
+flush privileges;
+```
 
