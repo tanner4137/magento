@@ -57,8 +57,8 @@ Once done:
 4. `systemctl enable mariadb.service`
 
 ### Configure DB
-1. mysql -u root -p
-2. Enter the root password when asked
+1. `sudo mysql -u root -p`
+2. Enter the `magento` user password when asked
 3. Enter the following commands in the order shown to create a database instance named magento with username magento:
 ```
 create database magento;
@@ -66,4 +66,9 @@ create user 'magento'@'localhost' IDENTIFIED BY 'Password';
 GRANT ALL ON magento.* TO 'magento'@'localhost';
 flush privileges;
 ```
+4. `mysql -u magento -p`
+5. Use the root password we set up in the second SQL statement referenced as `Password`
+6. `use magento;` and ensure the output is `Database changed`
+
+
 
