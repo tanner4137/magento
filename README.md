@@ -29,6 +29,18 @@ This document covers Magento and how I'm getting it installed on an Amazon EC2 i
 3. Save the changes you made and restart PHP with `systemctl restart php7.4-fpm`
 
 ### Install MariaDB
-1. `apt install mariadb-server`
-2. `systemctl status mariadb.service`
-3. `systemctl enable mariadb.service`
+1. `sudo apt install mariadb-server`
+2. `sudo mysql_secure_installation`
+This will launch the configurator for mariaDB
+```
+Enter current password for root (enter for none): Press [Enter] since no password is set by default
+Set root password? [Y/n]: N (You can set a password if you like)
+Remove anonymous users? [Y/n]: Y
+Disallow root login remotely? [Y/n]: Y
+Remove test database and access to it? [Y/n]: Y
+Reload privilege tables now? [Y/n]: Y
+```
+Once done:
+3. `systemctl status mariadb.service`
+4. `systemctl enable mariadb.service`
+
