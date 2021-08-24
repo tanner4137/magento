@@ -27,3 +27,8 @@ This document covers Magento and how I'm getting it installed on an Amazon EC2 i
 	2.	`max_execution_time = 1800`
 	3. `zlib.output_compression = On`
 3. Save the changes you made and restart PHP with `systemctl restart php7.4-fpm`
+
+### Install MariaDB
+1. `apt install mariadb-server`
+2. `systemctl status mariadb.service`
+3. `systemctl enable mariadb.service`
