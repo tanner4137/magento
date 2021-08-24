@@ -8,6 +8,8 @@ https://devdocs.magento.com/guides/v2.4/install-gde/prereq/mysql.html
 
 https://devdocs.magento.com/guides/v2.4/install-gde/prereq/connect-auth.html
 
+https://docs.rackspace.com/support/how-to/reset-a-mysql-root-password/
+
 # Introduction
 
 This document covers Magento and how I'm getting it installed on an Amazon EC2 instance
