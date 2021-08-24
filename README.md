@@ -1,3 +1,5 @@
+#Preface
+
 This guide has been made from information condensed down from the following documentation:
 
 https://devdocs.magento.com/guides/v2.4/install-gde/prereq/nginx.html#install-nginx
