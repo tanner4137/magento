@@ -16,6 +16,13 @@ https://www.rosehosting.com/blog/how-to-install-magento-2-4-with-lemp-stack-on-u
 # Introduction
 
 This document covers Magento and how I'm getting it installed on an Amazon EC2 instance
+## Prerequisites
+
+Before beginning the installation process, you must create an account at https://magento.com/
+
+After creating an account, acquire your public and private keys, needed for a later step, by visiting [this](https://marketplace.magento.com/) site. Once on there, click on your name in the top right corner and then click on "My Profile". Once there, click on "Access Keys", located under Marketplace > My Products.  
+
+Assuming you don't already have an access key created, simply create one and name it something appropriate.  Once created, make note that in a later step, your public key will act as your username and your private key will act as your password.
 
 ## Installation steps
 
@@ -112,5 +119,28 @@ At this point, I found that before I could run the `composer` command in the nex
 2. `composer create-project --repository=https://repo.magento.com/ magento/project-community-edition .`
 3. Provide public key as username and private key as password
    - https://marketplace.magento.com/customer/accessKeys/
-
+4. To run the initial `composer create-project` command, cd into /var/www/html and ensure the directory is empty of any contents. Generally, Nginx have a test file in here that you will need to delete.
+5. In the now empty directory, run the following command: `composer create-project --repository=https://repo.magento.com/ magento/project-community-edition .`
+6. Once finished, you may be presented with some yellow messages. These are not necessarily anything to worry about unless they're explicitly warnings or if the highlighting is red instead of yellow.
+7. We now run the `composer install` command to actually install Magento
+```
+composer install
+bin/magento setup:install \
+--base-url=http://localhost/magento2ee \
+--db-host=localhost \
+--db-name=magento \
+--db-user=magento \
+--db-password=db_password \
+--backend-frontname=admin \
+--admin-firstname=Tanner \
+--admin-lastname=Cude \
+--admin-email=tcude@merchante.com \
+--admin-user=magentoadmin \
+--admin-password=alphanumberic_password \
+--language=en_US \
+--currency=USD \
+--timezone=America/Chicago \
+--use-rewrites=1
+```
+Note that this step may take several minutes to install.
 
