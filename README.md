@@ -41,6 +41,7 @@ This document covers Magento and how I'm getting it installed on an Amazon EC2 i
 	1. `memory_limit = 2G`
 	2.	`max_execution_time = 1800`
 	3. `zlib.output_compression = On`
+	4. Uncomment `;extension=curl`
 3. Save the changes you made and restart PHP with `systemctl restart php7.4-fpm`
 
 ### Install MariaDB
@@ -82,7 +83,34 @@ flush privileges;
 4. `sudo systemctl status elasticsearch`
 5. `curl -XGET 'http://localhost:9200'`
 
+### Configure Elastic Search
+1. `sudo vim /etc/elasticsearch/elasticsearch.yml`
+- `cluster.name: Magento Cluster`
+- `node.name: Magento Node`
+- `network.host: localhost`
+2. `systemctl restart elasticsearch.service`
+3. Re-run `curl -XGET 'http://localhost:9200'` to confirm changes are reflected
+
+### Permissions
+1. `sudo usermod -g www-data magento`
+2. `sudo chown -R magento:www-data /var/www/html/`
+
+### Installing PHP Extensions
+At this point, I found that before I could run the `composer` command in the next section, I had several php extensions I had to install. Those were:
+1. `sudo apt install php-bcmath`
+2. `sudo apt install php7.4-curl`
+3. `sudo apt install php-xml`
+4. `sudo apt install php-7.4-mbstring`
+5. `sudo apt install php7.4-intl`
+6. `sudo apt install php7.4-gd`
+7. `sudo apt install php7.4-mysql`
+8. `sudo apt install php7.4-soap`
 
 
+### Installing Magento
+1. `sudo apt install zip unzip php-zip`
+2. `composer create-project --repository=https://repo.magento.com/ magento/project-community-edition .`
+3. Provide public key as username and private key as password
+   - https://marketplace.magento.com/customer/accessKeys/
 
 
