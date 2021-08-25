@@ -75,8 +75,8 @@ flush privileges;
 ### Install Elastic Search
 1. `wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.6.1-amd64.deb`
 2. `sudo dpkg -i elasticsearch-7.6.1-amd64.deb`
-3. `systemctl start elasticsearch`
-4. `systemctl status elasticsearch`
+3. `sudo systemctl start elasticsearch`
+4. `sudo systemctl status elasticsearch`
 5. `curl -XGET 'http://localhost:9200'`
 
 
