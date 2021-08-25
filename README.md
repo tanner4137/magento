@@ -130,9 +130,9 @@ bin/magento setup:install \
 --db-user=magento \
 --db-password=db_password \
 --backend-frontname=admin \
---admin-firstname=Tanner \
---admin-lastname=Cude \
---admin-email=tcude@merchante.com \
+--admin-firstname=first_name \
+--admin-lastname=last_name \
+--admin-email=email \
 --admin-user=magentoadmin \
 --admin-password=alphanumberic_password \
 --language=en_US \
