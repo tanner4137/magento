@@ -52,6 +52,8 @@ Disallow root login remotely? [Y/n]: Y
 Remove test database and access to it? [Y/n]: Y
 Reload privilege tables now? [Y/n]: Y
 ```
+*Note* - The credentials created in this process will need to be put into AWS Secrets Manager.
+
 Once done:
 3. `systemctl status mariadb.service`
 4. `systemctl enable mariadb.service`
