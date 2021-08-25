@@ -2,6 +2,7 @@
 
 This guide has been made from information condensed down from the following documentation:
 
+
 https://devdocs.magento.com/guides/v2.4/install-gde/prereq/nginx.html#install-nginx
 
 https://devdocs.magento.com/guides/v2.4/install-gde/prereq/mysql.html
@@ -9,6 +10,8 @@ https://devdocs.magento.com/guides/v2.4/install-gde/prereq/mysql.html
 https://devdocs.magento.com/guides/v2.4/install-gde/prereq/connect-auth.html
 
 https://docs.rackspace.com/support/how-to/reset-a-mysql-root-password/
+
+https://www.rosehosting.com/blog/how-to-install-magento-2-4-with-lemp-stack-on-ubuntu-20-04/
 
 # Introduction
 
