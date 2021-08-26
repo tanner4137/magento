@@ -114,25 +114,27 @@ At this point, I found that before I could run the `composer` command in the nex
 
 ### Installing Magento
 1. `sudo apt install zip unzip php-zip`
-2. `composer create-project --repository=https://repo.magento.com/ magento/project-community-edition .`
-3. Provide public key as username and private key as password
+2. `cd /var/www/html` and ensure the directory is empty of any contents. Generally, Nginx have a test file in here that you will need to delete.
+3. Install composer globally: `curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/bin --filename=composer`
+4. `composer create-project --repository=<https://repo.magento.com/ magento/project-community-edition .`
+5. When prompted, provide public key as username and private key as password
    - https://marketplace.magento.com/customer/accessKeys/
-4. To run the initial `composer create-project` command, cd into /var/www/html and ensure the directory is empty of any contents. Generally, Nginx have a test file in here that you will need to delete.
-5. In the now empty directory, run the following command: `composer create-project --repository=https://repo.magento.com/ magento/project-community-edition .`
-6. Once finished, you may be presented with some yellow messages. These are not necessarily anything to worry about unless they're explicitly warnings or if the highlighting is red instead of yellow.
-7. We now run the `composer install` command to actually install Magento
+
+Once finished, you may be presented with some messages highlighted in yellow. These are not necessarily anything to worry about unless they're explicitly warnings or if the highlighting is red instead of yellow.
+
+We now run the composer install command to actually Magento, itself
 ```
 composer install
 bin/magento setup:install \
---base-url=http://localhost/magento2ee \
+--base-url=<http://localhost/magento2ee> \
 --db-host=localhost \
 --db-name=magento \
 --db-user=magento \
 --db-password=db_password \
 --backend-frontname=admin \
---admin-firstname=first_name \
---admin-lastname=last_name \
---admin-email=email \
+--admin-firstname=Tanner \
+--admin-lastname=Cude \
+--admin-email=tcude@merchante.com \
 --admin-user=magentoadmin \
 --admin-password=alphanumberic_password \
 --language=en_US \
@@ -140,5 +142,4 @@ bin/magento setup:install \
 --timezone=America/Chicago \
 --use-rewrites=1
 ```
-Note that this step may take several minutes to install.
-
+Note that this step may take several minutes to complete but afterward, Magento will have been installed and you will then need to configure Nginx
